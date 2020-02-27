@@ -94,14 +94,10 @@ export PATH
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-alias lsa="ls -A"
 alias ..="cd .."
 alias ...="cd ../.."
 
 alias grep="grep --color"
-
-alias fd="find . -type d -name"
-alias ff="find . -type f -name"
 
 alias rm="rm -i"
 alias cp="cp -i"
@@ -109,8 +105,6 @@ alias mv="mv -i"
 
 alias gs="git status"
 alias gl="git log --oneline -n 20"
-
-alias gcloud-vietduc-dev="gcloud container clusters get-credentials vietduc-dev --zone asia-southeast1-a --project vietduc-dev"
 
 # Personal functions
 
