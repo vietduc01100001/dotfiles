@@ -96,13 +96,16 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias ls="exa"
 
+alias cat="bat --pager=nerver --style=plain"
 alias grep="grep --color"
 
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 
+alias lg="lazygit"
 alias gs="git status"
 alias gl="git log --oneline -n 20"
 
