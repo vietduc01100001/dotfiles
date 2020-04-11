@@ -1,0 +1,10 @@
+name: twins
+windows:
+  - name: twins
+    root: ~
+    layout: even-horizontal
+    panes:
+      - neofetch && ls -a
+      - commands:
+          - cd ~/dev && ls -a
+        focus: true
