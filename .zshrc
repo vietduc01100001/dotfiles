@@ -76,6 +76,13 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # -----------------------------------------------------------------------------
 
+# Dotfiles commands
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cs="config status"
+alias ca="config add"
+alias cdn="config pull"
+function cup() { config commit -m "update@$(date +%s)" && config push }
+
 # PATHs
 
 # nvm
