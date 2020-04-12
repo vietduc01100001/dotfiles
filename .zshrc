@@ -76,17 +76,28 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # -----------------------------------------------------------------------------
 
-# Custom auto completion
+# teamocil auto completion
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 
 # Dotfiles commands
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status"
 alias ca="config add"
-alias cdn="config pull"
-function cup() { config commit -m "update@$(date +%s)" && config push }
+alias cr="config reset HEAD -- "
+function cdn() {
+  config pull && \
+  upgrade_oh_my_zsh
+  # TODO: docker-compose, nvm, exa, bat
+}
+function cup() {
+  config commit -m "update@$(date +%s)" && \
+  config push
+}
 
 # PATHs
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
