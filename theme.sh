@@ -91,18 +91,18 @@ install_shell_extensions() {
 change_gnome_settings() {
     variant=$1
 
+    # Change font
+    gsettings set org.gnome.desktop.wm.preferences titlebar-font 'SF Pro Display 11' > /dev/null || true
+    gsettings set org.gnome.desktop.interface font-name 'SF Pro Display 10' > /dev/null || true
+    gsettings set org.gnome.desktop.interface document-font-name 'SF Pro Display 10' > /dev/null || true
+    gsettings set org.gnome.desktop.interface monospace-font-name 'Roboto Mono 11' > /dev/null || true
+
     # Change theme
     gsettings set org.gnome.desktop.interface gtk-theme "Mojave-$variant" > /dev/null || true
     gsettings set org.gnome.desktop.interface icon-theme "Mojave-CT-$variant" > /dev/null || true
     gsettings set org.gnome.desktop.interface cursor-theme 'OSX-ElCap' > /dev/null || true
     gsettings set org.gnome.shell.extensions.user-theme name "Mojave-$variant" > /dev/null || true
     gsettings set org.gnome.terminal.legacy theme-variant "$variant" > /dev/null || true
-
-    # Change font
-    gsettings set org.gnome.desktop.wm.preferences titlebar-font 'SF Pro Display 11' > /dev/null || true
-    gsettings set org.gnome.desktop.interface font-name 'SF Pro Display 10' > /dev/null || true
-    gsettings set org.gnome.desktop.interface document-font-name 'SF Pro Display 10' > /dev/null || true
-    gsettings set org.gnome.desktop.interface monospace-font-name 'Roboto Mono 11' > /dev/null || true
 
     # Change wallpaper
     gsettings set org.gnome.desktop.background picture-uri "file://$HOME/.themes/catalina-$variant.jpg" > /dev/null || true
