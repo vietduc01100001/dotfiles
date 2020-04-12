@@ -4,9 +4,10 @@ cmd=$1
 path=$2
 
 if [[ "$cmd" == "backup" ]]; then
-    filename="gnome-settings-$(date +%s).dconf"
-    dconf dump / > "./$filename"
-    echo "Settings backed up: $filename"
+    mkdir -p ~/.gnome/backup
+    file="$HOME/.gnome/backup/gnome-settings-$(date +%s).dconf"
+    dconf dump / > $file
+    echo "Settings backed up: $file"
 elif [[ "$cmd" == "load" ]]; then
     if [ -f "$path" ]; then
         dconf load / < $path
