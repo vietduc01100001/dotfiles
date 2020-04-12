@@ -29,9 +29,6 @@ command-history=['r']
 enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'Move_Clock@rmy.pobox.com', 'panel-osd@berend.de.schouwer.gmail.com', '', '', 'lockkeys@vaina.lt', 'gsconnect@andyholmes.github.io', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'google-chrome.desktop', 'com.alacritty.Alacritty.desktop', 'code_code.desktop']
 
-[org/gnome/shell/extensions/user-theme]
-name='Mojave-dark'
-
 [org/gnome/shell/extensions/lockkeys]
 notification-preferences='off'
 style='capslock'
@@ -103,13 +100,7 @@ migrated=true
 [org/gnome/desktop/interface]
 gtk-enable-primary-paste=false
 clock-format='12h'
-font-name='SF Pro Display 10'
-document-font-name='SF Pro Display 10'
-cursor-theme='OSX-ElCap'
 gtk-im-module='ibus'
-icon-theme='Mojave-CT-dark'
-monospace-font-name='Roboto Mono 11'
-gtk-theme='Mojave-dark'
 clock-show-date=true
 
 [org/gnome/desktop/notifications]
@@ -147,9 +138,6 @@ translate=true
 categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 
-[org/gnome/desktop/screensaver]
-picture-uri='file:///home/vietduc/.themes/catalina-dark-blur.png'
-
 [org/gnome/desktop/peripherals/touchpad]
 speed=-0.43779783393501803
 
@@ -169,14 +157,12 @@ remove-old-trash-files=true
 
 [org/gnome/desktop/wm/preferences]
 button-layout='close,minimize,maximize:'
-titlebar-font='SF Pro Display 11'
 
 [org/gnome/desktop/sound]
 theme-name='__custom'
 event-sounds=true
 
 [org/gnome/desktop/background]
-picture-uri='file:///home/vietduc/.themes/catalina-dark.jpg'
 show-desktop-icons=false
 
 [org/gnome/desktop/input-sources]
