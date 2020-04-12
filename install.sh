@@ -130,14 +130,19 @@ apt_install zsh \
     tree \
     tmux \
     xsel \
-    fzf
+    fzf \
+    expect
 
 # Oh My Zsh, themes & plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma/fast-syntax-highlighting.git "$ZSH_CUSTOM/plugins/fast-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+git clone https://github.com/lukechilds/zsh-nvm "$ZSH_CUSTOM/plugins/zsh-nvm"
+git clone https://github.com/lukechilds/zsh-better-npm-completion "$ZSH_CUSTOM/plugins/zsh-better-npm-completion"
+git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git "$ZSH_CUSTOM/plugins/zsh-safe-rm"
+git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/plugins/autoupdate"
 
 # exa
 curl -L "https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip" -o "$CACHE_DIR/exa.zip"
@@ -288,7 +293,7 @@ cecho $green "Updated system settings"
 #################################################
 
 # Remove temporary files
-sudo apt clean && rm -rf -- *.deb* *.gpg* && rm -f *.tar.gz *.tar.xz
+sudo apt clean && rm -rf -- *.deb* *.gpg* && rm -f *.key *.tar.gz *.tar.xz
 rm -rf $CACHE_DIR || true
 
 # Install updates then remove unused packages
@@ -303,6 +308,7 @@ read -r response
 if [ -z "${response}" ]; then
     response="yes"
 fi
+cecho $green "Goodbye!"
 if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     sudo shutdown -r now
 fi

@@ -15,7 +15,6 @@
 .tldr/
 .tmux/
 .vscode/
-snap/
 Desktop/
 Documents/
 Downloads/
@@ -23,9 +22,17 @@ Music/
 Pictures/
 Public/
 Templates/
-Videso/
+Vides/
+snap/
+portables/
 dev/
 work/
+.config/Code/
+.config/gcloud/
+.config/google-chrome*
+.config/gsconnect/
+.config/ibus*
+.config/nautilus/
 .bash_history
 .bash_logout
 .boto

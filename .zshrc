@@ -57,18 +57,21 @@ ENABLE_CORRECTION="true"
 
 # Which plugins would you like to load?
 plugins=(
-  docker
-  docker-compose
-  fzf
   git
   git-auto-fetch
-  golang
+  docker
+  docker-compose
   kubectl
-  npm
-  nvm
+  fast-syntax-highlighting
   zsh-autosuggestions
-  zsh-syntax-highlighting
+  zsh-nvm
+  zsh-better-npm-completion
+  zsh-safe-rm
+  autoupdate
 )
+
+# Set this before sourcing Oh My Zsh and plugins
+export NVM_LAZY_LOAD=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,18 +79,18 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # -----------------------------------------------------------------------------
 
-# teamocil auto completion
+# Teamocil auto completion
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 
 # Dotfiles commands
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status"
 alias ca="config add"
-alias cr="config reset HEAD -- "
-function cdn() {
+alias crm="config reset HEAD -- "
+function cdown() {
   config pull
   upgrade_oh_my_zsh
-  # TODO: docker-compose, nvm, exa, bat
+  # TODO: docker-compose, exa, bat
 }
 function cup() {
   config commit -m "update @ $(date --rfc-3339=s)"
@@ -98,11 +101,6 @@ function cup() {
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # go
 export GOPATH=$HOME/dev/go
@@ -121,9 +119,9 @@ alias ls="exa"
 alias cat="bat --pager=nerver --style=plain"
 alias grep="grep --color"
 
-alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias rm="rm -i"
 
 alias gs="git status"
 alias gl="git log --oneline -n 20"
@@ -131,3 +129,5 @@ alias gl="git log --oneline -n 20"
 # Personal functions
 
 function mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
+
+function docker_rm_all_images() { docker rmi -f $(docker images -a -q) }
