@@ -85,12 +85,12 @@ alias cs="config status"
 alias ca="config add"
 alias cr="config reset HEAD -- "
 function cdn() {
-  config pull && \
+  config pull
   upgrade_oh_my_zsh
   # TODO: docker-compose, nvm, exa, bat
 }
 function cup() {
-  config commit -m "update@$(date +%s)" && \
+  config commit -m "update @ $(date --rfc-3339=s)"
   config push
 }
 
@@ -130,4 +130,4 @@ alias gl="git log --oneline -n 20"
 
 # Personal functions
 
-function mkcd(){ mkdir -p -- "$1" && cd -P -- "$1"; }
+function mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }

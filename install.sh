@@ -12,7 +12,6 @@ CACHE_DIR="$HOME/.cache/ubuntu-setup"
 # Set the colors to use
 red=$(tput setaf 1)
 green=$(tput setaf 2)
-blue=$(tput setaf 4)
 cyan=$(tput setaf 6)
 reset=$(tput sgr0) # Reset the color
 
@@ -53,15 +52,15 @@ cecho $red "understood that it will make changes to your computer? (y/n): ";
 read -r response
 if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     echo_nl
-    cecho $blue "#################################################"
-    cecho $blue "#                                               #"
-    cecho $blue "#       Ubuntu Setup Installation Script        #"
-    cecho $blue "#                                               #"
-    cecho $blue "#              by vietduc01100001               #"
-    cecho $blue "#                                               #"
-    cecho $blue "#  Note: You need to be sudo before continuing  #"
-    cecho $blue "#                                               #"
-    cecho $blue "#################################################"
+    cecho $cyan "#################################################"
+    cecho $cyan "#                                               #"
+    cecho $cyan "#       Ubuntu Setup Installation Script        #"
+    cecho $cyan "#                                               #"
+    cecho $cyan "#              by vietduc01100001               #"
+    cecho $cyan "#                                               #"
+    cecho $cyan "#  Note: You need to be sudo before continuing  #"
+    cecho $cyan "#                                               #"
+    cecho $cyan "#################################################"
     echo_nl
 else
     cecho $red "Please go read the script, it only takes a few minutes."
@@ -194,12 +193,15 @@ cecho $green "Installed programming packages"
 #                   Dotfiles                    #
 #################################################
 
+# Init git for tracking dotfiles in home directory
 git init --bare $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config remote add origin $DOTFILES_REPO
 config pull origin master
+config branch --set-upstream-to=origin/master master
 
+# Configure zsh shell as default
 chsh -s $(which zsh)
 source ~/.zshrc
 
@@ -232,7 +234,7 @@ code --install-extension Shan.code-settings-sync --force
 sudo snap install --candidate postman
 sudo snap install redis-desktop-manager spotify
 
-# Chrome
+# Google Chrome
 curl -s https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o "$CACHE_DIR/google-chrome.deb"
 yes Y | sudo gdebi "$CACHE_DIR/google-chrome.deb"
 
@@ -277,7 +279,7 @@ sudo apt-get clean && sudo apt-get autoclean
 yes Y | sudo apt-get autoremove --purge
 
 cecho $green "Installation completed!"
-cecho $green "Reboot system now? [Y/n] "
+cecho $cyan "Reboot system now? [Y/n] "
 read -r response
 if [ -z "${response}" ]; then
     response="yes"
