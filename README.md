@@ -10,10 +10,11 @@ To install my dotfiles:
 ./install.sh
 ```
 
-To use my Gnome settings:
+To load or back up Gnome settings:
 
 ```console
-./change-gnome-settings.sh
+./gnome-settings.sh backup
+./gnome-settings.sh load $path_to_file
 ```
 
 To install MacOS theme for Ubuntu 18.04:

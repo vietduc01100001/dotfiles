@@ -1,0 +1,215 @@
+[system/locale]
+region='en_US.UTF-8'
+
+[org/gnome/settings-daemon/plugins/power]
+power-button-action='nothing'
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-schedule-automatic=false
+night-light-schedule-to=7.0
+night-light-schedule-from=18.0
+night-light-enabled=true
+night-light-temperature=uint32 5500
+
+[org/gnome/settings-daemon/plugins/media-keys]
+www='HomePage'
+home='<Super>e'
+
+[org/gnome/settings-daemon/plugins/xsettings]
+hinting='slight'
+
+[org/gnome/settings-daemon/peripherals/keyboard]
+numlock-state='on'
+
+[org/gnome/shell]
+app-picker-view=uint32 1
+command-history=['r']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'Move_Clock@rmy.pobox.com', 'panel-osd@berend.de.schouwer.gmail.com', '', '', 'lockkeys@vaina.lt', 'gsconnect@andyholmes.github.io', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'google-chrome.desktop', 'com.alacritty.Alacritty.desktop', 'code_code.desktop']
+
+[org/gnome/shell/extensions/user-theme]
+name='Mojave-dark'
+
+[org/gnome/shell/extensions/lockkeys]
+notification-preferences='off'
+style='capslock'
+
+[org/gnome/shell/extensions/dash-to-dock]
+multi-monitor=true
+custom-theme-shrink=true
+click-action='minimize'
+dock-position='BOTTOM'
+dash-max-icon-size=40
+transparency-mode='DEFAULT'
+show-apps-at-top=true
+
+[org/gnome/shell/extensions/panel-osd]
+test-delay=0.5
+test-notification=false
+x-pos=100.0
+
+[org/gnome/shell/extensions/clipboard-indicator]
+history-size=50
+toggle-menu=['<Super>v']
+preview-size=40
+strip-text=false
+
+[org/gnome/shell/extensions/gsconnect/preferences]
+window-maximized=false
+window-size=(640, 440)
+
+[org/gnome/shell/extensions/gsconnect]
+id='vietduc-ubuntu'
+devices=[']
+name='vietduc-ubuntu'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/plugins]
+active-plugins=['spell', 'modelines', 'filebrowser', 'docinfo', 'time']
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+sidebar-width=196
+geometry='890x549+50+75'
+maximized=false
+
+[org/gnome/file-roller/listing]
+sort-method='name'
+name-column-width=250
+sort-type='ascending'
+list-mode='as-folder'
+show-path=false
+
+[org/gnome/file-roller/dialogs/extract]
+skip-newer=false
+recreate-folders=true
+
+[org/gnome/file-roller/ui]
+sidebar-width=200
+window-height=480
+window-width=600
+
+[org/gnome/evolution-data-server]
+network-monitor-gio-name=''
+migrated=true
+
+[org/gnome/desktop/interface]
+gtk-enable-primary-paste=false
+clock-format='12h'
+font-name='SF Pro Display 10'
+document-font-name='SF Pro Display 10'
+cursor-theme='OSX-ElCap'
+gtk-im-module='ibus'
+icon-theme='Mojave-CT-dark'
+monospace-font-name='Roboto Mono 11'
+gtk-theme='Mojave-dark'
+clock-show-date=true
+
+[org/gnome/desktop/notifications]
+application-children=['update-manager', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'firefox']
+
+[org/gnome/desktop/notifications/application/update-manager]
+application-id='update-manager.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
+application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'Sundry', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+translate=true
+categories=['X-GNOME-Utilities']
+apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
+name='X-GNOME-Utilities.directory'
+
+[org/gnome/desktop/app-folders/folders/Sundry]
+translate=true
+categories=['X-GNOME-Sundry']
+apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
+name='X-GNOME-Sundry.directory'
+
+[org/gnome/desktop/app-folders/folders/YaST]
+translate=true
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///home/vietduc/.themes/catalina-dark-blur.png'
+
+[org/gnome/desktop/peripherals/touchpad]
+speed=-0.43779783393501803
+
+[org/gnome/desktop/peripherals/mouse]
+speed=-0.15483754512635378
+
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/session]
+idle-delay=uint32 600
+
+[org/gnome/desktop/privacy]
+remove-old-temp-files=true
+remember-recent-files=false
+remove-old-trash-files=true
+
+[org/gnome/desktop/wm/preferences]
+button-layout='close,minimize,maximize:'
+titlebar-font='SF Pro Display 11'
+
+[org/gnome/desktop/sound]
+theme-name='__custom'
+event-sounds=true
+
+[org/gnome/desktop/background]
+picture-uri='file:///home/vietduc/.themes/catalina-dark.jpg'
+show-desktop-icons=false
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us'), ('ibus', 'Bamboo')]
+mru-sources=[('xkb', 'us'), ('ibus', 'Bamboo')]
+xkb-options=@as []
+
+[org/gnome/control-center]
+last-panel='privacy'
+
+[org/gnome/terminal/legacy]
+schema-version=uint32 3
+
+[org/gnome/gnome-system-monitor]
+show-dependencies=false
+current-tab='resources'
+maximized=false
+show-whose-processes='user'
+window-state=(700, 500, 428, 93)
+
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
+
+[org/gtk/settings/file-chooser]
+sort-column='name'
+clock-format='12h'
+sidebar-width=157
+window-position=(135, 26)
+show-size-column=true
+show-hidden=true
+window-size=(1096, 702)
+sort-directories-first=true
+date-format='regular'
+sort-order='ascending'
+location-mode='path-bar'
