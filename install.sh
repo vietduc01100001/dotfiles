@@ -156,6 +156,13 @@ yes Y | sudo gdebi "$CACHE_DIR/bat.deb"
 # Teamocil
 sudo gem install teamocil
 
+# Gcloud SDK
+curl https://sdk.cloud.google.com > "$CACHE_DIR/install.sh"
+bash "$CACHE_DIR/install.sh" --disable-prompts
+
+# kubectl
+sudo snap install kubectl --classic
+
 cecho $green "Installed terminal packages"
 
 #################################################
