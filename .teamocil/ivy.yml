@@ -5,7 +5,7 @@ windows:
     layout: tiled
     panes:
       - ls -a
-      - git standup -m 3
+      - git-standup -m 3
       - echo "Have a good working day\!"
       - commands:
           - tmux clock-mode
