@@ -99,6 +99,10 @@ function cup() {
 
 # PATHs
 
+# config k8s section in spaceship theme
+export SPACESHIP_KUBECTL_SHOW=true
+export SPACESHIP_KUBECTL_VERSION_SHOW=false
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
