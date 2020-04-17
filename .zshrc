@@ -67,8 +67,13 @@ plugins=(
   zsh-nvm
   zsh-better-npm-completion
   zsh-safe-rm
+  zsh-lazyload
   autoupdate
 )
+
+# config k8s section in spaceship theme
+export SPACESHIP_KUBECTL_SHOW=true
+export SPACESHIP_KUBECTL_VERSION_SHOW=false
 
 # Set this before sourcing Oh My Zsh and plugins
 export NVM_LAZY_LOAD=true
@@ -78,9 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # -----------------------------------------------------------------------------
 # User configuration
 # -----------------------------------------------------------------------------
-
-# Teamocil auto completion
-compctl -g '~/.teamocil/*(:t:r)' teamocil
 
 # Dotfiles commands
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -99,10 +101,6 @@ function cup() {
 
 # PATHs
 
-# config k8s section in spaceship theme
-export SPACESHIP_KUBECTL_SHOW=true
-export SPACESHIP_KUBECTL_VERSION_SHOW=false
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -113,8 +111,9 @@ PATH=$PATH:$GOPATH:$GOBIN
 export PATH
 
 # Google Cloud SDK
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+lazyload gcloud_path -- 'if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi'
+lazyload gcloud_completion -- '[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi'
+lazyload gcloud_update -- 'gcloud components update -q'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
 
