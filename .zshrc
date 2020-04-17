@@ -92,6 +92,7 @@ alias crm="config reset HEAD -- "
 function cdown() {
   config pull
   upgrade_oh_my_zsh
+  gcloud components update -q
   # TODO: docker-compose, exa, bat
 }
 function cup() {
@@ -113,7 +114,6 @@ export PATH
 # Google Cloud SDK
 lazyload gcloud_path -- 'if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi'
 lazyload gcloud_completion -- '[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi'
-lazyload gcloud_update -- 'gcloud components update -q'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
 
