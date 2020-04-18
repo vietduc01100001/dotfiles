@@ -34,7 +34,7 @@ DISABLE_UPDATE_PROMPT="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -57,17 +57,17 @@ ENABLE_CORRECTION="true"
 
 # Which plugins would you like to load?
 plugins=(
-  git
-  git-auto-fetch
-  docker
-  docker-compose
-  kubectl
-  fast-syntax-highlighting
-  zsh-autosuggestions
-  zsh-nvm
-  zsh-better-npm-completion
-  zsh-safe-rm
-  autoupdate
+    git
+    git-auto-fetch
+    docker
+    docker-compose
+    kubectl
+    fast-syntax-highlighting
+    zsh-autosuggestions
+    zsh-nvm
+    zsh-better-npm-completion
+    zsh-safe-rm
+    autoupdate
 )
 
 # config k8s section in spaceship theme
@@ -86,17 +86,21 @@ source $ZSH/oh-my-zsh.sh
 # Dotfiles commands
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status"
-alias ca="config add"
+alias cadd="config add"
 alias crm="config reset HEAD -- "
 function cdown() {
-  config pull
-  upgrade_oh_my_zsh
-  gcloud components update -q
-  # TODO: docker-compose, exa, bat
+    config pull
+    upgrade_oh_my_zsh
+    source ~/.zshrc
+    gcloud components update -q
+    # TODO: docker-compose, exa, bat
 }
 function cup() {
-  config commit -m "update @ $(date --rfc-3339=s)"
-  config push
+    for file in `config ls-files`; do
+        config add "$HOME/$file"
+    done
+    config commit -m "update @ $(date --rfc-3339=s)"
+    config push
 }
 
 # PATHs
