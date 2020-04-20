@@ -141,35 +141,3 @@ alias gl="git log --oneline -n 20"
 function mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 function docker_rm_all_images() { docker rmi -f $(docker images -a -q) }
-
-function encrypt_by_lines() {
-    path_encr_file=$1
-    path_encr_dir=$2
-    path_key_file=$3
-
-    [ ! -f "$path_key_file" ] && return
-    [ ! -d "$path_encr_dir" ] && mkdir $path_encr_dir
-    rm -rf $path_encr_dir/*
-
-    i=0
-    while IFS= read -r line; do
-        # ignore long line
-        echo $line | openssl rsautl -inkey $path_key_file -encrypt > "$path_encr_dir/$i.bin"
-        i=$(expr $i + 1)
-    done < $path_encr_file
-}
-
-function decrypt_into_file() {
-    path_encr_file=$1
-    path_encr_dir=$2
-    path_key_file=$3
-
-    [ ! -d "$path_encr_dir" ] && return
-    [ ! -f "$path_key_file" ] && return
-    rm -f $path_encr_file
-
-    for filepath in `ls $path_encr_dir/* | sort -V`; do
-        line=$(openssl rsautl -inkey $path_key_file -decrypt < $filepath)
-        echo $line >> $path_encr_file
-    done
-}
