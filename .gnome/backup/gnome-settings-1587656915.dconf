@@ -256,3 +256,7 @@ name='Mojave-dark'
 
 [system/locale]
 region='en_US.UTF-8'
+
+[org/gnome/shell/extensions/desktop-icons/show-home]
+show-home=false
+show-trash=false
