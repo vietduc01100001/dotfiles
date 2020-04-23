@@ -93,9 +93,6 @@ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschn
 wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_18.04/Release.key -O Release.key
 sudo apt-key add - < Release.key
 
-# Stacer
-sudo add-apt-repository ppa:oguzhaninan/stacer -y
-
 # Refresh package lists
 sudo apt-get update -qq || true
 sudo dpkg --configure -a || true
@@ -232,10 +229,7 @@ cecho $green "Installed input programs"
 #                  GUI programs                 #
 #################################################
 
-apt_install code \
-    albert \
-    stacer \
-    kazam
+apt_install code albert
 
 # Settings Sync VSCode extension
 code --install-extension Shan.code-settings-sync --force
