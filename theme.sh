@@ -24,7 +24,7 @@ apt_install() {
 
 download_themes_package() {
     variant=$1
-    curl -sL "https://github.com/vietduc01100001/dotfiles/releases/download/1.1.0/mac-os-$variant-1.1.0.tar.xz" -o "$CACHE_DIR/mac-os-$variant.tar.xz"
+    curl -sL "https://github.com/vietduc01100001/dotfiles/releases/download/1.1.1/mac-os-$variant-1.1.1.tar.xz" -o "$CACHE_DIR/mac-os-$variant.tar.xz"
     tar xf "$CACHE_DIR/mac-os-$variant.tar.xz" -C $CACHE_DIR
 }
 
