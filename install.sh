@@ -244,21 +244,6 @@ yes Y | sudo gdebi "$CACHE_DIR/google-chrome.deb"
 # Telegram
 curl -sL https://telegram.org/dl/desktop/linux -o "$CACHE_DIR/telegram.tar.xz"
 sudo tar xf "$CACHE_DIR/telegram.tar.xz" -C /opt
-sudo tee -a /usr/share/applications/telegram.desktop > /dev/null <<EOT
-[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Name=Telegram Desktop
-Comment=Official desktop version of Telegram messaging app
-Exec=/opt/Telegram/Telegram -- %u
-Icon=telegram
-Terminal=false
-StartupWMClass=Telegram
-Type=Application
-Categories=Network;
-MimeType=x-scheme-handler/tg;
-X-Desktop-File-Install-Version=0.22
-EOT
 
 cecho $green "Installed GUI programs"
 
