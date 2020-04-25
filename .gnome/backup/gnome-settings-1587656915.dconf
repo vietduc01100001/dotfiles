@@ -29,9 +29,6 @@ show-banners=true
 [org/gnome/desktop/notifications/application/albert]
 application-id='albert.desktop'
 
-[org/gnome/desktop/notifications/application/code-code]
-application-id='code_code.desktop'
-
 [org/gnome/desktop/notifications/application/filezilla]
 application-id='filezilla.desktop'
 
@@ -221,7 +218,7 @@ hinting='slight'
 app-picker-view=uint32 1
 command-history=['r']
 enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'Move_Clock@rmy.pobox.com', 'panel-osd@berend.de.schouwer.gmail.com', '', '', 'lockkeys@vaina.lt', 'gsconnect@andyholmes.github.io', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'com.alacritty.Alacritty.desktop', 'code_code.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'com.alacritty.Alacritty.desktop', 'code.desktop']
 had-bluetooth-devices-setup=true
 
 [org/gnome/shell/extensions/clipboard-indicator]
