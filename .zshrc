@@ -103,6 +103,10 @@ function cup() {
 
 # PATHs
 
+# user bin
+PATH=$PATH:$HOME/.local/bin
+export PATH
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
