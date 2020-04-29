@@ -110,6 +110,8 @@ apt_install curl \
     git \
     gdebi \
     ruby \
+    python3-pip \
+    xsel \
     apt-transport-https \
     ca-certificates \
     gnupg-agent \
@@ -125,10 +127,12 @@ apt_install zsh \
     powerline \
     fonts-powerline \
     tree \
+    nnn \
     tmux \
-    xsel \
     fzf \
     expect
+
+pip3 install --user tmuxp
 
 # Oh My Zsh, themes & plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -187,6 +191,7 @@ nvm install --lts --latest-npm
 nvm alias default node
 npm install --global yarn \
     npm-check-updates \
+    depcheck \
     nodemon \
     json \
     eslint \

@@ -1,20 +1,25 @@
 session_name: work
 start_directory: ~/work
+environment:
+  TERM: xterm-256color
+  LC_COLLATE: C
 windows:
   - window_name: projects
     window_index: 1
     layout: main-vertical
-    panes:
-      - nnn
-      - git-standup
-      - start_directory: ~/work/builder
     focus: true
+    panes:
+      - shell_command: nnn
+        focus: true
+      - clear && git-standup -s
+      - start_directory: ~/work/builder
+        shell_command: clear && git status
   - window_name: ssh
     window_index: 2
     layout: even-horizontal
     panes:
-      - ssh root@10.6.6.95
-      - ssh root@10.6.6.134
+      - clear && ssh root@10.6.6.95
+      - clear && ssh root@10.6.6.134
   - window_name: misc
     window_index: 3
     layout: tiled
