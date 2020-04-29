@@ -1,0 +1,21 @@
+session_name: dev
+start_directory: ~/
+environment:
+  TERM: xterm-256color
+  LC_COLLATE: C
+windows:
+  - window_name: home
+    window_index: 1
+    layout: even-horizontal
+    focus: true
+    panes:
+      - shell_command: nnn
+        focus: true
+      - clear && config status
+  - window_name: dev
+    window_index: 2
+    layout: even-horizontal
+    start_directory: ~/dev
+    panes:
+      -
+      -
