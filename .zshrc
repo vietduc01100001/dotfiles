@@ -141,6 +141,8 @@ alias rm="rm -i"
 alias gs="git status"
 alias gl="git log --oneline -n 20"
 
+alias tm="tmuxp load -y"
+
 # Personal functions
 
 function mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
