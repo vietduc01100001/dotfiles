@@ -111,10 +111,7 @@ export PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # go
-export GOPATH=$HOME/dev/go
-export GOBIN=$GOPATH/bin
-PATH=$PATH:$GOPATH:$GOBIN
-export PATH
+[[ -s "/home/vietduc/.gvm/scripts/gvm" ]] && source "/home/vietduc/.gvm/scripts/gvm"
 
 # Google Cloud SDK
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
@@ -148,3 +145,4 @@ alias tm="tmuxp load -y"
 function mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 function docker_rm_all_images() { docker rmi -f $(docker images -a -q) }
+

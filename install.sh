@@ -76,6 +76,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #             Update package lists              #
 #################################################
 
+# kubectl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+
 # Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -93,6 +97,10 @@ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschn
 wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
 sudo apt-key add - < Release.key
 
+# Spotify
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
 # Refresh package lists
 sudo apt-get update -qq || true
 sudo dpkg --configure -a || true
@@ -108,6 +116,12 @@ cecho $cyan "Start installing packages..."
 apt_install curl \
     wget \
     git \
+    mercurial \
+    make \
+    binutils \
+    bison \
+    gcc \
+    build-essential \
     gdebi \
     ruby \
     python3-pip \
@@ -130,7 +144,8 @@ apt_install zsh \
     nnn \
     tmux \
     fzf \
-    expect
+    expect \
+    kubectl
 
 pip3 install --user tmuxp
 
@@ -158,20 +173,15 @@ yes Y | sudo gdebi "$CACHE_DIR/bat.deb"
 curl https://sdk.cloud.google.com > "$CACHE_DIR/install.sh"
 bash "$CACHE_DIR/install.sh" --disable-prompts
 
-# kubectl
-sudo snap install kubectl --classic
-
 cecho $green "Installed terminal packages"
 
 #################################################
 #             Programming packages              #
 #################################################
 
-sudo snap install go --classic
 apt_install docker-ce \
     docker-ce-cli \
     containerd.io \
-    go-dep \
     redis-server
 
 # Set up Docker
@@ -197,6 +207,12 @@ npm install --global yarn \
     eslint \
     git-standup \
     tldr
+
+# Go
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+source ~/.gvm/scripts/gvm
+gvm install go1.14.2 --prefer-binary
+gvm use go1.14.2 --default
 
 cecho $green "Installed programming packages"
 
@@ -234,13 +250,13 @@ cecho $green "Installed input programs"
 #                  GUI programs                 #
 #################################################
 
-apt_install code albert
+apt_install code albert spotify vlc
 
 # Settings Sync VSCode extension
 code --install-extension Shan.code-settings-sync --force
 
 sudo snap install --candidate postman
-sudo snap install redis-desktop-manager spotify
+sudo snap install redis-desktop-manager
 
 # Google Chrome
 curl -s https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o "$CACHE_DIR/google-chrome.deb"
