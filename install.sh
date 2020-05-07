@@ -182,7 +182,8 @@ cecho $green "Installed terminal packages"
 apt_install docker-ce \
     docker-ce-cli \
     containerd.io \
-    redis-server
+    redis-server \
+    shellcheck
 
 # Set up Docker
 sudo gpasswd -a "$(users)" docker
