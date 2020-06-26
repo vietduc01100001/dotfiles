@@ -94,7 +94,7 @@ function cdown() {
     # TODO: docker-compose, exa, bat
 }
 function cup() {
-    for file in `config ls-files`; do
+    for file in $(config ls-files); do
         config add "$HOME/$file"
     done
     config commit -m "update @ $(date --rfc-3339=s)"
@@ -142,7 +142,17 @@ alias tm="tmuxp load -y"
 
 # Personal functions
 
-function mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
+function mkcd() {
+    mkdir -p -- "$1"
+    cd -P -- "$1" || return
+}
 
-function docker_rm_all_images() { docker rmi -f $(docker images -a -q) }
+function docker_image_rm_all() {
+    docker rmi -f "$(docker images -a -q)"
+}
 
+function git_branch_rm_merged() {
+    for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do
+        git branch -D "$branch"
+    done
+}
