@@ -9,9 +9,9 @@ windows:
     layout: even-horizontal
     focus: true
     panes:
-      - shell_command: nnn
-        focus: true
       - clear && config status
+      - shell_command: ls
+        focus: true
   - window_name: dev
     window_index: 2
     layout: even-horizontal

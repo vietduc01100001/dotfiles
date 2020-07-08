@@ -32,7 +32,7 @@ apt_install() {
     if [ "${1}" == "-q" ]; then
         params=($@)
         for pkg in "${params[@]:1}"; do
-            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq "${pkg}" > /dev/null || true
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq "${pkg}" >/dev/null || true
         done
     else
         for pkg in "$@"; do
@@ -47,8 +47,8 @@ apt_install() {
 #                    Welcome                    #
 #################################################
 
-cecho $red "Have you read through the script you're about to run and";
-cecho $red "understood that it will make changes to your computer? (y/n): ";
+cecho $red "Have you read through the script you're about to run and"
+cecho $red "understood that it will make changes to your computer? (y/n): "
 read -r response
 if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     echo_nl
@@ -70,7 +70,11 @@ fi
 # Ask for the administrator password and run an infinite loop
 # to update existing `sudo` timestamp until script has finished
 sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+done 2>/dev/null &
 
 #################################################
 #             Update package lists              #
@@ -88,14 +92,14 @@ sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/u
 sudo add-apt-repository -y ppa:bamboo-engine/ibus-bamboo
 
 # VSCode
-curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # Albert
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
 wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
-sudo apt-key add - < Release.key
+sudo apt-key add - <Release.key
 
 # Spotify
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
@@ -141,7 +145,6 @@ apt_install zsh \
     powerline \
     fonts-powerline \
     tree \
-    nnn \
     tmux \
     fzf \
     expect \
@@ -170,7 +173,7 @@ curl -s "https://github.com/sharkdp/bat/releases/download/v0.13.0/bat_0.13.0_amd
 yes Y | sudo gdebi "$CACHE_DIR/bat.deb"
 
 # Gcloud SDK
-curl https://sdk.cloud.google.com > "$CACHE_DIR/install.sh"
+curl https://sdk.cloud.google.com >"$CACHE_DIR/install.sh"
 bash "$CACHE_DIR/install.sh" --disable-prompts
 
 cecho $green "Installed terminal packages"
@@ -188,7 +191,7 @@ apt_install docker-ce \
 # Set up Docker
 sudo gpasswd -a "$(users)" docker
 sudo usermod -a -G docker "$(users)"
-echo '{"features":{"buildkit":true}}' | sudo tee /etc/docker/daemon.json > /dev/null
+echo '{"features":{"buildkit":true}}' | sudo tee /etc/docker/daemon.json >/dev/null
 
 # Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -242,7 +245,7 @@ cecho $green "Installed dotfiles"
 sudo gpasswd -a $USER input
 apt_install libinput-tools \
     xdotool \
-    ibus-bamboo # Vietnamese keyboard
+    ibus-bamboo         # Vietnamese keyboard
 sudo gem install fusuma # Multi-touch gestures
 ibus restart
 cecho $green "Installed input programs"
