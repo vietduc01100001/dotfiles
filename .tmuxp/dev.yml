@@ -11,6 +11,7 @@ windows:
     panes:
       - clear && config status
       - shell_command: ls
+        start_directory: ~/dev
         focus: true
   - window_name: dev
     window_index: 2
