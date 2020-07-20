@@ -1,5 +1,4 @@
 session_name: dev
-start_directory: ~/
 environment:
   TERM: xterm-256color
   LC_COLLATE: C
@@ -7,16 +6,16 @@ windows:
   - window_name: home
     window_index: 1
     layout: even-horizontal
-    focus: true
     panes:
-      - clear && config status
+      - shell_command: TERM=xterm-256color; config status
+        start_directory: ~/
       - shell_command: ls
         start_directory: ~/dev
         focus: true
   - window_name: dev
     window_index: 2
-    layout: even-horizontal
     start_directory: ~/dev
+    layout: even-horizontal
     panes:
       -
       -

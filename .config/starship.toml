@@ -1,0 +1,6 @@
+[character]
+symbol = "➜"
+
+[docker_context]
+disabled = false
+only_with_files = false
