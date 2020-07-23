@@ -100,10 +100,11 @@ function docker_image_rm_all() {
     docker rmi -f "$(docker images -a -q)"
 }
 
-function git_branch_rm_merged() {
+function git_branch_clean() {
     for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do
         git branch -D "$branch"
     done
+    git remote prune origin
 }
 
 # Load starship theme
