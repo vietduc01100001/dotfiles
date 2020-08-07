@@ -11,9 +11,6 @@ ZSH_THEME="minimal"
 # Uncomment the following line to automatically update without prompting
 DISABLE_UPDATE_PROMPT="true"
 
-# Uncomment the following line to enable command auto-correction
-ENABLE_CORRECTION="true"
-
 # Which plugins would you like to load?
 plugins=(
     git
@@ -56,8 +53,7 @@ function cup() {
 # PATHs
 
 # user bin
-PATH=$PATH:$HOME/.local/bin
-export PATH
+export PATH=$PATH:$HOME/.local/bin
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
