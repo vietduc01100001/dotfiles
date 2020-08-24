@@ -11,7 +11,7 @@ apt_install() {
     if [ "${1}" == "-q" ]; then
         params=($@)
         for pkg in "${params[@]:1}"; do
-            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq "${pkg}" > /dev/null || true
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq "${pkg}" >/dev/null || true
         done
     else
         for pkg in "$@"; do
@@ -24,7 +24,7 @@ apt_install() {
 
 download_themes_package() {
     variant=$1
-    curl -sL "https://github.com/vietduc01100001/dotfiles/releases/download/1.2.1/mac-os-$variant-1.2.1.tar.xz" -o "$CACHE_DIR/mac-os-$variant.tar.xz"
+    curl -sL "https://github.com/vietduc01100001/dotfiles/releases/download/1.2.2/mac-os-$variant-1.2.2.tar.xz" -o "$CACHE_DIR/mac-os-$variant.tar.xz"
     tar xf "$CACHE_DIR/mac-os-$variant.tar.xz" -C $CACHE_DIR
 }
 
@@ -78,7 +78,7 @@ install_shell_extensions() {
         uuid=$(unzip -c $filename metadata.json | grep uuid | cut -d \" -f4)
         dir_ext="$HOME/.local/share/gnome-shell/extensions/$uuid"
         mkdir -p $dir_ext
-        unzip -o $filename -d $dir_ext > /dev/null
+        unzip -o $filename -d $dir_ext >/dev/null
         gnome-shell-extension-tool -e $uuid
     done
 }
@@ -87,21 +87,21 @@ change_gnome_settings() {
     variant=$1
 
     # Change font
-    gsettings set org.gnome.desktop.wm.preferences titlebar-font 'SF Pro Display 11' > /dev/null || true
-    gsettings set org.gnome.desktop.interface font-name 'SF Pro Display 10' > /dev/null || true
-    gsettings set org.gnome.desktop.interface document-font-name 'SF Pro Display 10' > /dev/null || true
-    gsettings set org.gnome.desktop.interface monospace-font-name 'Roboto Mono 11' > /dev/null || true
+    gsettings set org.gnome.desktop.wm.preferences titlebar-font 'SF Pro Display 11' >/dev/null || true
+    gsettings set org.gnome.desktop.interface font-name 'SF Pro Display 10' >/dev/null || true
+    gsettings set org.gnome.desktop.interface document-font-name 'SF Pro Display 10' >/dev/null || true
+    gsettings set org.gnome.desktop.interface monospace-font-name 'Roboto Mono 11' >/dev/null || true
 
     # Change theme
-    gsettings set org.gnome.desktop.interface gtk-theme "Mojave-$variant" > /dev/null || true
-    gsettings set org.gnome.desktop.interface icon-theme "Mojave-CT-$variant" > /dev/null || true
-    gsettings set org.gnome.desktop.interface cursor-theme 'OSX-ElCap' > /dev/null || true
-    gsettings set org.gnome.shell.extensions.user-theme name "Mojave-$variant" > /dev/null || true
-    gsettings set org.gnome.terminal.legacy theme-variant "$variant" > /dev/null || true
+    gsettings set org.gnome.desktop.interface gtk-theme "Mojave-$variant" >/dev/null || true
+    gsettings set org.gnome.desktop.interface icon-theme "Mojave-CT-$variant" >/dev/null || true
+    gsettings set org.gnome.desktop.interface cursor-theme 'OSX-ElCap' >/dev/null || true
+    gsettings set org.gnome.shell.extensions.user-theme name "Mojave-$variant" >/dev/null || true
+    gsettings set org.gnome.terminal.legacy theme-variant "$variant" >/dev/null || true
 
     # Change wallpaper
-    gsettings set org.gnome.desktop.background picture-uri "file://$HOME/.themes/catalina-$variant.jpg" > /dev/null || true
-    gsettings set org.gnome.desktop.screensaver picture-uri "file://$HOME/.themes/catalina-$variant-blur.png" > /dev/null || true
+    gsettings set org.gnome.desktop.background picture-uri "file://$HOME/.themes/catalina-$variant.jpg" >/dev/null || true
+    gsettings set org.gnome.desktop.screensaver picture-uri "file://$HOME/.themes/catalina-$variant-blur.png" >/dev/null || true
 }
 
 # main
