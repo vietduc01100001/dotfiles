@@ -60,6 +60,7 @@ export PATH=$PATH:$HOME/.local/bin
 
 # go
 [[ -s "/home/vietduc/.gvm/scripts/gvm" ]] && source "/home/vietduc/.gvm/scripts/gvm"
+alias cdgo="cd $GOPATH"
 
 # Google Cloud SDK
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
