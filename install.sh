@@ -3,8 +3,8 @@
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-# Install terminal programs
-brew install wget fzf exa bat shellcheck starship nodenv rbenv
+# Install brew packages
+brew bundle
 
 # Enable fzf
 "$(brew --prefix)"/opt/fzf/install --key-bindings --completion
