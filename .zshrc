@@ -49,7 +49,7 @@ function cup() {
   for file in $(config ls-files); do
     config add "$HOME/$file"
   done
-  config commit -m "update @ $(date --rfc-3339=s)"
+  config commit -m "update @ $(date +"%c")"
   config push
 }
 
