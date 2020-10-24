@@ -4,10 +4,10 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install terminal programs
-brew install wget fzf exa bat shellcheck starship
+brew install wget fzf exa bat shellcheck starship nodenv rbenv
 
 # Enable fzf
-"$(brew --prefix)"/opt/fzf/install
+"$(brew --prefix)"/opt/fzf/install --key-bindings --completion
 
 # Install Oh My Zsh, themes & plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -17,9 +17,9 @@ git clone https://github.com/lukechilds/zsh-better-npm-completion "$ZSH_CUSTOM/p
 git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git "$ZSH_CUSTOM/plugins/zsh-safe-rm"
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/plugins/autoupdate"
 
-# Install nvm, Node & packages
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
-nvm install --lts
+# Install Node & packages
+nodenv install 12.19.0
+nodenv global 12.19.0
 npm i -g yarn typescript tldr
 
 # Install gvm & Go
