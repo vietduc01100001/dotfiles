@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+# Prerequisites
+# - Xcode command-line tools
+# - SSH keys to GitHub
+
+# Init tracking dotfiles in home directory
+git init --bare "$HOME"/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+config remote add origin git@github.com:hellovietduc/dotfiles.git
+config pull origin master
+config branch --set-upstream-to=origin/master master
+
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
