@@ -32,7 +32,7 @@ git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/p
 # Install Node & packages
 nodenv install 12.19.0
 nodenv global 12.19.0
-npm i -g yarn typescript tldr
+npm i -g yarn typescript
 
 # Install gvm & Go
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
