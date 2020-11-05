@@ -37,3 +37,4 @@ npm i -g yarn typescript
 # Install gvm & Go
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 gvm install go1.4 --prefer-binary
+gvm use go1.4 --default

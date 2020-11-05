@@ -35,6 +35,9 @@ eval "$(rbenv init -)"
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
+# Load libpq
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
 # Dotfiles commands
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status"
