@@ -30,8 +30,8 @@ git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git "$ZSH
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/plugins/autoupdate"
 
 # Install Node & packages
-nodenv install 12.19.0
-nodenv global 12.19.0
+nodenv install 14.15.0
+nodenv global 14.15.0
 npm i -g yarn typescript
 
 # Install gvm & Go
