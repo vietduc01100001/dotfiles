@@ -32,6 +32,7 @@ eval "$(rbenv init -)"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # Load gcloud
+export CLOUDSDK_PYTHON="/usr/bin/python"
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
@@ -82,9 +83,6 @@ function docker_image_rm_all() {
 }
 
 function git_branch_clean() {
-  for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do
-    git branch -D "$branch"
-  done
   git remote prune origin
   for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do
     git branch -D "$branch"
