@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Except these
+!.asdfrc
+!.default-npm-packages
+!.gitconfig
+!.gitignore
+!.iterm2/com.googlecode.iterm2.plist
+!.tool-versions
+!.zshrc
+!Brewfile
+!README.md
+!install.sh

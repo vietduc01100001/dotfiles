@@ -29,12 +29,31 @@ git clone https://github.com/lukechilds/zsh-better-npm-completion "$ZSH_CUSTOM/p
 git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git "$ZSH_CUSTOM/plugins/zsh-safe-rm"
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/plugins/autoupdate"
 
-# Install Node & packages
-nodenv install 14.15.0
-nodenv global 14.15.0
-npm i -g yarn typescript
+# Add asdf plugins
+while IFS= read -r line; do
+  name="$(echo $line | cut -d " " -f1)"
+  asdf plugin add "$name"
+  echo "Added plugin: $name"
+done <"$HOME/.tool-versions"
 
-# Install gvm & Go
-bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-gvm install go1.4 --prefer-binary
-gvm use go1.4 --default
+# Install all packages listed in ~/.tool-versions
+NODEJS_CHECK_SIGNATURES=no asdf install
+
+# Set versions globally
+while IFS= read -r line; do
+  name="$(echo $line | cut -d " " -f1)"
+  version="$(echo $line | cut -d " " -f2)"
+  asdf global "$name" "$version"
+  echo "Set package globally: $name $version"
+done <"$HOME/.tool-versions"
+
+# Install itomate
+# Require Enable Python API in iTerm 2
+pip install itomate
+
+# Reshim packages, should always be the last
+while IFS= read -r line; do
+  name="$(echo $line | cut -d " " -f1)"
+  asdf reshim "$name"
+  echo "Reshimmed: $name $version"
+done <"$HOME/.tool-versions"

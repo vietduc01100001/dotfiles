@@ -1,3 +1,7 @@
+#############
+# Oh My ZSH #
+#############
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="minimal"
@@ -16,30 +20,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Init starship theme
-eval "$(starship init zsh)"
+#####################
+# Dotfiles commands #
+#####################
 
-# Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Load nodenv
-eval "$(nodenv init -)"
-
-# Load rbenv
-eval "$(rbenv init -)"
-
-# Load gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# Load gcloud
-export CLOUDSDK_PYTHON="/usr/bin/python"
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-# Load libpq
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-# Dotfiles commands
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status"
 alias cadd="config add"
@@ -88,3 +72,27 @@ function git_branch_clean() {
     git branch -D "$branch"
   done
 }
+
+###########
+# Loaders #
+###########
+
+# Init starship theme
+eval "$(starship init zsh)"
+
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load asdf
+. $(brew --prefix asdf)/asdf.sh
+
+# Load gcloud
+export CLOUDSDK_PYTHON="/usr/bin/python"
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+########################
+# Load private scripts #
+########################
+
+. ~/.privaterc
