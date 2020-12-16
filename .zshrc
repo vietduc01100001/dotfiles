@@ -95,4 +95,4 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # Load private scripts #
 ########################
 
-. ~/.privaterc
+[ -f ~/.privaterc ] && source ~/.privaterc
