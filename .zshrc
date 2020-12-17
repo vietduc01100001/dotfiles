@@ -88,11 +88,6 @@ eval "$(starship init zsh)"
 # Load github cli
 eval "$(gh completion -s zsh)"
 
-# Load gcloud
-export CLOUDSDK_PYTHON="/usr/bin/python"
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
 ########################
 # Load private scripts #
 ########################

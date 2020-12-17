@@ -27,7 +27,7 @@ This repo stores my dotfiles setup I'm using on my Mac.
     ```
     ./install.sh <repo link>
     ```
-    
+
 5. Restart and enjoy!
 
 ### Post-installation
@@ -36,6 +36,8 @@ This repo stores my dotfiles setup I'm using on my Mac.
 
 - My `.gitignore` file is ambitious, it ignores everything except for some. When tracking a new file or a whole directory, remember to add it to the `.gitignore` file as well.
 
+- If you have private scripts or something you want to keep locally, put it in a `.private.sh` file. It's automatically loaded from the `.zshrc` file.
+
 ### Managing dotfiles
 
 If done correctly, your HOME directory is now a git repository. You'll also have some commands to help manage the dotfiles easier.
@@ -43,11 +45,11 @@ If done correctly, your HOME directory is now a git repository. You'll also have
 | Command  | Alias of                                      | Description                                |
 | -------- | --------------------------------------------- | ------------------------------------------ |
 | `config` | `git --git-dir=$HOME/.git/ --work-tree=$HOME` | Like `git`, but only for the dotfiles repo |
-| `cs`     | `config status`                               | Alias for `config status`                  |
-| `cadd`   | `config add`                                  | Alias for `config add`                     |
+| `cs`     | `config status`                               | Check the status of the dotfiles repo      |
+| `cadd`   | `config add`                                  | Track new dotfiles                         |
 | `cdc`    | `config checkout --`                          | Discard changes to a file                  |
 | `cdown`  |                                               | Pull changes from remote and apply them    |
-| `cup`    |                                               | Commit all local changes to remote         |             
+| `cup`    |                                               | Commit all local changes to remote         |
 
 They can be invoked anywhere regardless of the current working directory.
 
