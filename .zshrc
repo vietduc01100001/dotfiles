@@ -95,4 +95,8 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # Load private scripts #
 ########################
 
-[ -f ~/.privaterc ] && source ~/.privaterc
+# Not-so-private first
+alias avengers="itomate -c $HOME/avengers.yml"
+
+# Really private later
+[ -f ~/.private.sh ] && source ~/.private.sh
