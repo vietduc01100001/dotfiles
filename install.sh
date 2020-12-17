@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
 
-# Prerequisites
+# Prerequisites:
 # - Xcode command-line tools
 # - SSH keys to GitHub
 
+REMOTE="git@github.com:hellovietduc/dotfiles.git"
+if [ -n "$1" ]; then
+  REMOTE="$1"
+fi
+
+# Remove existed .git directory if any
+rm -rf "$HOME"/.git
+
 # Init tracking dotfiles in home directory
-git init --bare "$HOME"/.cfg
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+git init --bare "$HOME"/.git
+alias config='/usr/bin/git --git-dir=$HOME/.git/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
-config remote add origin git@github.com:hellovietduc/dotfiles.git
+config remote add origin "$REMOTE"
 config pull origin master
 config branch --set-upstream-to=origin/master master
 

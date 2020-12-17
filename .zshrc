@@ -24,10 +24,9 @@ source $ZSH/oh-my-zsh.sh
 # Dotfiles commands #
 #####################
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.git/ --work-tree=$HOME'
 alias cs="config status"
 alias cadd="config add"
-alias crm="config reset HEAD -- "
 alias cdc="config checkout -- "
 function cdown() {
   config pull
