@@ -17,7 +17,7 @@ tabs:
         position: "3/1"
         commands:
           - "cd ~/starkindustries/mozart/services/rails"
-          - "clear; git status"
+          - "clear; gh pr status"
         focus: true
       - title: "the wakandans"
         position: "4/1"
