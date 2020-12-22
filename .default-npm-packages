@@ -1,5 +1,6 @@
-yarn
-typescript
 depcheck
-npm-check-updates
 nodemon
+npm-check-updates
+ts-node
+typescript
+yarn
