@@ -31,6 +31,7 @@ alias cdc="config checkout -- "
 function cdown() {
   config pull
   omz update
+  asdf plugin update --all
   source ~/.zshrc
 }
 function cup() {
