@@ -28,6 +28,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.git/ --work-tree=$HOME'
 alias cs="config status"
 alias cadd="config add"
 alias cdc="config checkout -- "
+alias cus="config reset --"
 function cdown() {
   config pull
   omz update
@@ -40,6 +41,16 @@ function cup() {
   done
   config commit -m "update @ $(date +"%c")"
   config push
+}
+function ch() {
+  echo -e "config: Manage dotfiles\n"
+  echo -e "cs\tCheck the status of the dotfiles repo"
+  echo -e "cadd\tTrack new dotfiles"
+  echo -e "cdc\tDiscard changes to a file"
+  echo -e "cus\tUnstage a file"
+  echo -e "cdown\tPull changes from remote and apply them"
+  echo -e "cup\tCommit all local changes to remote"
+  echo -e "ch\tShow help"
 }
 
 # Other aliases & commands

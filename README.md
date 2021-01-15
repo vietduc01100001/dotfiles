@@ -48,8 +48,10 @@ If done correctly, your HOME directory is now a git repository. You'll also have
 | `cs`     | `config status`                               | Check the status of the dotfiles repo      |
 | `cadd`   | `config add`                                  | Track new dotfiles                         |
 | `cdc`    | `config checkout --`                          | Discard changes to a file                  |
+| `cus`    | `config reset --`                             | Unstage a file                             |
 | `cdown`  |                                               | Pull changes from remote and apply them    |
 | `cup`    |                                               | Commit all local changes to remote         |
+| `ch`     |                                               | Show help                                  |
 
 They can be invoked anywhere regardless of the current working directory.
 
