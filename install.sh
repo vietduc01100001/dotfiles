@@ -65,3 +65,7 @@ while IFS= read -r line; do
   asdf reshim "$name"
   echo "Reshimmed: $name $version"
 done <"$HOME/.tool-versions"
+
+# Load crontab
+echo "0 * * * * $HOME/sync.sh" >"$HOME/cron"
+crontab cron
