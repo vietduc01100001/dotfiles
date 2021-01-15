@@ -5,7 +5,7 @@ This repo stores my dotfiles setup I'm using on my Mac.
 ### What's included?
 
 - `install.sh`: used to run in a fresh installation of Mac OS to install everything I need.
-- `Brewfile`: contains the list of formulae and casks I'm using.
+- `Brewfile`: contains the list of brew packages and casks I'm using.
 - `.zshrc`: my ZSH configurations.
 - `.tool-versions`: I use `asdf` to manage programming language installations. This file contains the list and their versions.
 - And other important dotfiles.
