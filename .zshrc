@@ -67,6 +67,10 @@ alias rm="rm -i"
 
 alias gs="git status"
 alias gl="git log --oneline -n 20"
+alias grc="git rebase --continue"
+alias prc="gh pr create -w"
+
+alias dcls="docker container ls"
 
 function mkcd() {
   mkdir -p -- "$1"
