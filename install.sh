@@ -67,5 +67,5 @@ while IFS= read -r line; do
 done <"$HOME/.tool-versions"
 
 # Load crontab
-echo "0 * * * * $HOME/sync.sh" >"$HOME/cron"
+echo "0 12 * * * $HOME/sync.sh" >"$HOME/cron"
 crontab cron

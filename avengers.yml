@@ -13,13 +13,9 @@ tabs:
         commands:
           - "cd ~/starkindustries/mozart/services/rails"
           - "clear; git standup"
+        focus: true
       - title: "the avengers"
         position: "3/1"
         commands:
           - "cd ~/starkindustries/mozart/services/rails"
           - "clear; gh pr status"
-        focus: true
-      - title: "the wakandans"
-        position: "4/1"
-        commands:
-          - "clear; echo 'Have a Nice Day!'"

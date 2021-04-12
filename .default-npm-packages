@@ -1,5 +1,5 @@
-concurrently
 depcheck
+json
 nodemon
 npm-check-updates
 ts-node
