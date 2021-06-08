@@ -4,18 +4,16 @@ tabs:
     title: "avengers assemble"
     root: "~"
     panes:
-      - title: "the asgardians"
+      - title: "1"
         position: "1/1"
         commands:
-          - "clear; echo 'Hello!'"
-      - title: "the guardians of the galaxy"
+          - "clear; curl http://checkip.amazonaws.com"
+      - title: "2"
         position: "2/1"
         commands:
-          - "cd ~/starkindustries/mozart/services/rails"
-          - "clear; git standup"
+          - "clear"
         focus: true
-      - title: "the avengers"
+      - title: "3"
         position: "3/1"
         commands:
-          - "cd ~/starkindustries/mozart/services/rails"
-          - "clear; gh pr status"
+          - "clear"

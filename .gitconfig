@@ -3,3 +3,5 @@
 	email = vietduc01100001@gmail.com
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
