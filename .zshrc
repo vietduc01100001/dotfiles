@@ -9,13 +9,15 @@ DISABLE_UPDATE_PROMPT="true"
 ZSH_DISABLE_COMPFIX="true"
 
 plugins=(
-  git
+  asdf
+  autoupdate
+  deno
   docker
   fast-syntax-highlighting
+  git
   zsh-autosuggestions
   zsh-better-npm-completion
   zsh-safe-rm
-  autoupdate
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,9 +99,6 @@ eval "$(starship init zsh)"
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Load asdf
-. $(brew --prefix asdf)/asdf.sh
 
 # Load github cli
 eval "$(gh completion -s zsh)"

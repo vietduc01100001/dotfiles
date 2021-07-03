@@ -36,6 +36,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/
 git clone https://github.com/lukechilds/zsh-better-npm-completion "$ZSH_CUSTOM/plugins/zsh-better-npm-completion"
 git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git "$ZSH_CUSTOM/plugins/zsh-safe-rm"
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/plugins/autoupdate"
+git clone git@github.com:denodev/oh-my-zsh-deno.git "$ZSH_CUSTOM/plugins/deno"
 
 # Add asdf plugins
 while IFS= read -r line; do
